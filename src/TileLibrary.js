@@ -52,7 +52,7 @@ class TileLibrary extends React.Component {
 
         document.addEventListener("dragenter", function(event) {
             // highlight potential drop target when the draggable element enters it
-            if (event.target.className == "dropzone") {
+            if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
                 event.target.style.background = "purple";
             }
 
@@ -60,7 +60,7 @@ class TileLibrary extends React.Component {
 
         document.addEventListener("dragleave", function(event) {
             // reset background of potential drop target when the draggable element leaves it
-            if (event.target.className == "dropzone") {
+            if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
                 event.target.style.background = "";
             }
 
@@ -70,10 +70,30 @@ class TileLibrary extends React.Component {
             // prevent default action (open as link for some elements)
             event.preventDefault();
             // move dragged elem to the selected drop target
-            if (event.target.className == "dropzone") {
-                event.target.style.background = "";
-                window.dragged.parentNode.removeChild( window.dragged );
-                event.target.appendChild( window.dragged );
+            if (event.target.classList.contains("dropzone")) {
+
+                let item = window.dragged
+                let start = item.parentNode,
+                    end = event.target
+                let startedLibrary = start.classList.contains("library"),
+                    endedLibrary = end.classList.contains("library")
+
+                start.style.background = "";
+                if (startedLibrary && endedLibrary) {
+                    //do nothing
+                }
+                else if (startedLibrary && !endedLibrary) {
+                    item.style.opacity = "";
+                    start.appendChild(item.cloneNode())
+                    end.appendChild(item);
+                }
+                else if (!startedLibrary && endedLibrary) {
+                    start.removeChild( item );
+                }
+                else {
+                    start.removeChild( item );
+                    end.appendChild( item );
+                }
             }
         }, false);
     }
@@ -84,7 +104,7 @@ class TileLibrary extends React.Component {
         // require('./tiles/7deadlygamers.png')
         
         return (
-            <div style={{float: "right", backgroundColor: "green", height: "600px", width: "400px"}}>
+            <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {tiles} */}
                 <img src={require('./tiles/7deadlygamers.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/><img src={require('./tiles/discord.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>
             </div>

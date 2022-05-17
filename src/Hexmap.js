@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const a = Math.PI / 3;
+const dropzoneSize = 80, leftIndent = 20, topIndent = 20
 
 class Hexmap extends React.Component {
     constructor(props) {
@@ -18,14 +19,6 @@ class Hexmap extends React.Component {
         }
         ctx.closePath();
         ctx.stroke();
-        // let demo = React.createElement(
-        //     "h1", { style: { color: "green" } }, "Welcome to GeeksforGeeks"
-        // )
-        // ReactDOM.render(
-        //     demo,
-        //     document.getElementById('root')
-        // );
-
     }
 
     drawGrid(width, height, ctx) {
@@ -35,7 +28,7 @@ class Hexmap extends React.Component {
             for (let x = r, j = 0; x + r * (1 + Math.cos(a)) < width; x += r * (1 + Math.cos(a)), y += (-1) ** j++ * r * Math.sin(a)) {
                 this.drawHexagon(x, y, ctx);
                 dropZones.push(
-                    React.createElement("div", {style: {backgroundColor: "red", height: 30, width: 30}})
+                    {x: x, y: y}
                 )
             }
         }
@@ -48,8 +41,8 @@ class Hexmap extends React.Component {
     }
     render() {
         return ( <div>
-            {/* {this.state.dropZones} */}
-            <canvas id="canvas" width={this.props.width} height={this.props.height}/>
+            <canvas id="canvas" width={this.props.width} height={this.props.height} style={{position: 'absolute', left: leftIndent, top: topIndent}}/>
+            {this.state.dropZones.map(dz => <div id={`hex ${dz.x} ${dz.y}`} className='dropzone' style={{height: dropzoneSize, width: dropzoneSize, position: 'absolute', left: dz.x + leftIndent - dropzoneSize / 2, top: dz.y + topIndent - dropzoneSize / 2}}/>)}
         </div>)
     }
 }

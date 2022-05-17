@@ -20,8 +20,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Hexmap width={750} height={1000} radius={60}/>
-      <div className='dropzone' style={{float: "right", backgroundColor: "blue", height: "200px", width: "300px"}}></div>
+      <Hexmap width={875} height={1150} radius={60}/>
       <TileLibrary/>
     </div>
   );
