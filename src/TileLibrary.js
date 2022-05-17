@@ -79,6 +79,7 @@ class TileLibrary extends React.Component {
                     endedLibrary = end.classList.contains("library")
 
                 start.style.background = "";
+                end.style.background = "";
                 if (startedLibrary && endedLibrary) {
                     //do nothing
                 }
