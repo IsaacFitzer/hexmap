@@ -18,10 +18,10 @@ class TileLibrary extends React.Component {
             return images;
         }
           
-        var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
-        
+        // var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
         // var imagesCode = ''
         // images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>`)
+        // console.log("images code:")
         // console.log(imagesCode)
 
         // this.setState({images: images})
@@ -80,10 +80,8 @@ class TileLibrary extends React.Component {
 
                 start.style.background = "";
                 end.style.background = "";
-                if (startedLibrary && endedLibrary) {
-                    //do nothing
-                }
-                else if (startedLibrary && !endedLibrary) {
+                
+                if (startedLibrary && !endedLibrary) {
                     item.style.opacity = "";
                     start.appendChild(item.cloneNode())
                     end.appendChild(item);
@@ -91,7 +89,7 @@ class TileLibrary extends React.Component {
                 else if (!startedLibrary && endedLibrary) {
                     start.removeChild( item );
                 }
-                else {
+                else if (!startedLibrary && !endedLibrary) {
                     start.removeChild( item );
                     end.appendChild( item );
                 }
@@ -106,7 +104,7 @@ class TileLibrary extends React.Component {
         
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
-                {/* {tiles} */}
+                {/* {images code goes there  VVV} */}
                 <img src={require('./tiles/7deadlygamers.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/><img src={require('./tiles/discord.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>
             </div>
         )
