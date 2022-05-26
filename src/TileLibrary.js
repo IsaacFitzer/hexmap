@@ -103,7 +103,7 @@ class TileLibrary extends React.Component {
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVVV} */}
-               <img src={require('./tiles/7deadlygamers.png')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_1.png')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_2.png')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/discord.png')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
+               <img src={require('./tiles/Tile_1.png')} height='110px' width='127px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_2.png')} height='110px' width='127px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
             </div>
         )
     }
