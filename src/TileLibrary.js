@@ -20,7 +20,7 @@ class TileLibrary extends React.Component {
           
          var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
          var imagesCode = ''
-         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>`)
+         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>`)
          console.log("images code:")
          console.log(imagesCode)
 
@@ -105,7 +105,7 @@ class TileLibrary extends React.Component {
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVV} */}
-                <img src={require('./tiles/7deadlygamers.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/><img src={require('./tiles/discord.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>
+                <img src={require('./tiles/7deadlygamers.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/discord.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
             </div>
         )
     }
