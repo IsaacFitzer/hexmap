@@ -13,8 +13,7 @@ class TileLibrary extends React.Component {
 
     componentDidMount() {
         function importAll(r) {
-            let images = [];
-            r.keys().map((item, index) => { images[index] = item.replace('./', './tiles/'); });
+            let images = r.keys().map((item, index) => item.replace('./', './tiles/') );
             return images;
         }
           
