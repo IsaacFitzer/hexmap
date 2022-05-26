@@ -1,12 +1,12 @@
 import React from 'react';
 
 class TileLibrary extends React.Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     images: []
-        // }
-    }
+    //constructor(props) {
+    //    super(props);
+    //    this.state = {
+    //        images: []
+    //    }
+    //}
 
     drag() {
     }
