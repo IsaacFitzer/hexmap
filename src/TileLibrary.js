@@ -18,11 +18,11 @@ class TileLibrary extends React.Component {
             return images;
         }
           
-        // var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
-        // var imagesCode = ''
-        // images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>`)
-        // console.log("images code:")
-        // console.log(imagesCode)
+         var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
+         var imagesCode = ''
+         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)}/>`)
+         console.log("images code:")
+         console.log(imagesCode)
 
         // this.setState({images: images})
 
