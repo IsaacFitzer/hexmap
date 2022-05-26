@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const a = Math.PI / 3;
 const dropzoneSize = 80, leftIndent = 20, topIndent = 20
