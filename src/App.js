@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Hexmap from './Hexmap';
 import TileLibrary from './TileLibrary';
