@@ -13,8 +13,7 @@ class TileLibrary extends React.Component {
 
     componentDidMount() {
         function importAll(r) {
-            let images = r.keys().map((item, index) => item.replace('./', './tiles/') );
-            return images;
+            return r.keys().map((item, index) => item.replace('./', './tiles/') );
         }
           
          var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
