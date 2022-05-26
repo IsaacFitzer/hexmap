@@ -1,7 +1,7 @@
 import React from 'react';
 
 const a = Math.PI / 3;
-const dropzoneSize = 80, leftIndent = 20, topIndent = 20
+const dropzoneHeight = 110, dropzoneWidth = 125, leftIndent = 20, topIndent = 20
 
 class Hexmap extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class Hexmap extends React.Component {
     render() {
         return ( <div>
             <canvas id="canvas" width={this.props.width} height={this.props.height} style={{position: 'absolute', left: leftIndent, top: topIndent}}/>
-            {this.state.dropZones.map(dz => <div id={`hex ${dz.x} ${dz.y}`} className='dropzone' style={{height: dropzoneSize, width: dropzoneSize, position: 'absolute', left: dz.x + leftIndent - dropzoneSize / 2, top: dz.y + topIndent - dropzoneSize / 2}}/>)}
+            {this.state.dropZones.map(dz => <div id={`hex ${dz.x} ${dz.y}`} className='dropzone' style={{borderRadius: '50%', height: dropzoneHeight, width: dropzoneWidth, position: 'absolute', left: dz.x + leftIndent - dropzoneWidth / 2, top: dz.y + topIndent - dropzoneHeight / 2}}/>)}
         </div>)
     }
 }

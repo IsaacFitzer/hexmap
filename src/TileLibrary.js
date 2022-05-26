@@ -18,7 +18,7 @@ class TileLibrary extends React.Component {
           
          var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
          var imagesCode = ''
-         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>`)
+         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>`)
          console.log("images code:")
          console.log(imagesCode)
 
@@ -48,21 +48,21 @@ class TileLibrary extends React.Component {
             event.preventDefault();
         }, false);
 
-        document.addEventListener("dragenter", function(event) {
-            // highlight potential drop target when the draggable element enters it
-            if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
-                event.target.style.background = "purple";
-            }
+        // document.addEventListener("dragenter", function(event) {
+        //     // highlight potential drop target when the draggable element enters it
+        //     if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
+        //         event.target.style.background = "purple";
+        //     }
 
-        }, false);
+        // }, false);
 
-        document.addEventListener("dragleave", function(event) {
-            // reset background of potential drop target when the draggable element leaves it
-            if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
-                event.target.style.background = "";
-            }
+        // document.addEventListener("dragleave", function(event) {
+        //     // reset background of potential drop target when the draggable element leaves it
+        //     if (event.target.classList.contains("dropzone") && !event.target.classList.contains("library")) {
+        //         event.target.style.background = "";
+        //     }
 
-        }, false);
+        // }, false);
 
         document.addEventListener("drop", function(event) {
             // prevent default action (open as link for some elements)
@@ -103,7 +103,7 @@ class TileLibrary extends React.Component {
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVVV} */}
-               <img src={require('./tiles/7deadlygamers.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_1.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_2.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/discord.png')} height='80px' width='80px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
+               <img src={require('./tiles/7deadlygamers.png')} height='100px' width='100px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_1.png')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_2.png')} height='100px' width='100px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/discord.png')} height='100px' width='100px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
             </div>
         )
     }
