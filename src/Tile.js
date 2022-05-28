@@ -14,7 +14,7 @@ class Tile extends React.Component {
                 src={this.props.src}
                 id={name}
                 alt={name}
-                height='110px'
+                height='111px'
                 width='128px'
                 draggable='true'
                 onMouseOver={() => {if (!$('#' + name).parent().hasClass('library')) window.hoveredTile = name}}
