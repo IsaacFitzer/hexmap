@@ -64,8 +64,8 @@ class TileLibrary extends React.Component {
                 let item = window.dragged
                 let start = item.parentNode,
                     end = event.target
-                let startedLibrary = start.classList.contains("library"),
-                    endedLibrary = end.classList.contains("library")
+                // let startedLibrary = start.classList.contains("library"),
+                //     endedLibrary = end.classList.contains("library")
 
                 start.style.background = "";
                 end.style.background = "";
@@ -106,6 +106,7 @@ class TileLibrary extends React.Component {
                     case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': ''})
                         break;
+                    default:
                 }
             }
             if ((event.key === 'd' || event.key === 'ArrowRight') && window.hoveredTile != null) {
@@ -128,6 +129,7 @@ class TileLibrary extends React.Component {
                     case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': ''})
                         break;
+                    default:
                 }
             }
         }, false)
