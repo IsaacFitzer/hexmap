@@ -12,30 +12,22 @@ class TileLibrary extends React.Component {
         console.log("images code:")
         console.log(imagesCode)
 
-        // this.setState({images: images})
-
         window.dragged = null
         window.hoveredTile = null
 
-        /* events fired on the draggable target */
         document.addEventListener("drag", function(event) {
         }, false);
 
         document.addEventListener("dragstart", function(event) {
-            // store a ref. on the dragged elem
             window.dragged = event.target;
-            // make it half transparent
             event.target.style.opacity = .5;
         }, false);
 
         document.addEventListener("dragend", function(event) {
-            // reset the transparency
             event.target.style.opacity = "";
         }, false);
 
-        /* events fired on the drop targets */
         document.addEventListener("dragover", function(event) {
-            // prevent default to allow drop
             event.preventDefault();
         }, false);
 
@@ -56,9 +48,7 @@ class TileLibrary extends React.Component {
         // }, false);
 
         document.addEventListener("drop", function(event) {
-            // prevent default action (open as link for some elements)
             event.preventDefault();
-            // move dragged elem to the selected drop target
             if (event.target.classList.contains("dropzone")) {
 
                 let item = window.dragged
@@ -136,10 +126,6 @@ class TileLibrary extends React.Component {
     }
 
     render() {
-        // var {images} = this.state
-        // var tiles = images.map(el => <img src={el}/>);
-        // require('./tiles/7deadlygamers.png')
-        
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVVV} */}
