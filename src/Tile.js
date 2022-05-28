@@ -10,8 +10,6 @@ class Tile extends React.Component {
 
     render() {
         let name = this.props.src.replace('/static/media/', '').replace(/.[\d\w]{20}.png/, '')
-
-        console.log($('#' + name).parent().hasClass('library'))
         return <img
                 src={this.props.src}
                 id={name}
