@@ -41,7 +41,7 @@ class Hexmap extends React.Component {
     render() {
         return ( <div>
             <canvas id="canvas" width={this.props.width} height={this.props.height} style={{position: 'absolute', left: leftIndent, top: topIndent}}/>
-            {this.state.dropZones.map(dz => <div id={`hex ${dz.x} ${dz.y}`} className='dropzone' style={{borderRadius: '50%', height: dropzoneHeight, width: dropzoneWidth, position: 'absolute', left: dz.x + leftIndent - dropzoneWidth / 2, top: dz.y + topIndent - dropzoneHeight / 2}}/>)}
+            {this.state.dropZones.map(dz => <div id={`hex ${dz.x} ${dz.y}`} className='dropzone' style={{borderRadius: '50%', height: dropzoneHeight, width: dropzoneWidth, position: 'absolute', left: dz.x + leftIndent - dropzoneWidth / 2 - 1, top: dz.y + topIndent - dropzoneHeight / 2}}/>)}
         </div>)
     }
 }
