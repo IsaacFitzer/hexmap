@@ -1,30 +1,21 @@
 import React from 'react';
+import $ from 'jquery';
+import Tile from './Tile'
 
 class TileLibrary extends React.Component {
-    //constructor(props) {
-    //    super(props);
-    //    this.state = {
-    //        images: []
-    //    }
-    //}
-
-    drag() {
-    }
 
     componentDidMount() {
-        function importAll(r) {
-            return r.keys().map((item, index) => item.replace('./', './tiles/') );
-        }
-          
-         var images = importAll(require.context('./tiles', false, /\.(png|jpe?g|svg)$/))
-         var imagesCode = ''
-         images.forEach(i => imagesCode += `<img src={require('` + i + `')} height='110px' width='125px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>`)
-         console.log("images code:")
-         console.log(imagesCode)
+
+        var images = require.context('./tiles', false, /\.(png|jpe?g|svg)$/).keys().map((item, index) => item.replace('./', './tiles/') )
+        var imagesCode = ''
+        images.forEach(i => imagesCode += `<Tile src={require('` + i + `')}/>`)
+        console.log("images code:")
+        console.log(imagesCode)
 
         // this.setState({images: images})
 
         window.dragged = null
+        window.hoveredTile = null
 
         /* events fired on the draggable target */
         document.addEventListener("drag", function(event) {
@@ -79,20 +70,67 @@ class TileLibrary extends React.Component {
                 start.style.background = "";
                 end.style.background = "";
                 
-                if (startedLibrary && !endedLibrary) {
-                    item.style.opacity = "";
-                    start.appendChild(item.cloneNode())
-                    end.appendChild(item);
-                }
-                else if (!startedLibrary && endedLibrary) {
-                    start.removeChild( item );
-                }
-                else if (!startedLibrary && !endedLibrary) {
+                // if (startedLibrary && !endedLibrary) {
+                //     item.style.opacity = "";
+                //     start.appendChild(item.cloneNode())
+                //     end.appendChild(item);
+                // }
+                // else if (!startedLibrary && endedLibrary) {
+                //     start.removeChild( item );
+                // }
+                // else if (!startedLibrary && !endedLibrary) {
                     start.removeChild( item );
                     end.appendChild( item );
-                }
+                //}
             }
         }, false);
+
+        document.addEventListener("keydown", function(event) {
+            if ((event.key === 'a' || event.key === 'ArrowLeft') && window.hoveredTile != null) {
+                switch($('#' + window.hoveredTile).css('transform')) {
+                    case 'none':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
+                        break;
+                    case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(-120deg)'})
+                        break;
+                    case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(-180deg)'})
+                        break;
+                    case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(-240deg)'})
+                        break;
+                    case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(-300deg)'})
+                        break;
+                    case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': ''})
+                        break;
+                }
+            }
+            if ((event.key === 'd' || event.key === 'ArrowRight') && window.hoveredTile != null) {
+                switch($('#' + window.hoveredTile).css('transform')) {
+                    case 'none':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(60deg)'})
+                        break;
+                    case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(120deg)'})
+                        break;
+                    case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(180deg)'})
+                        break;
+                    case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(240deg)'})
+                        break;
+                    case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': 'rotate(300deg)'})
+                        break;
+                    case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                        $('#' + window.hoveredTile).css({'transform': ''})
+                        break;
+                }
+            }
+        }, false)
     }
 
     render() {
@@ -103,7 +141,7 @@ class TileLibrary extends React.Component {
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVVV} */}
-               <img src={require('./tiles/Tile_1.png')} height='110px' width='127px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/><img src={require('./tiles/Tile_2.png')} height='110px' width='127px' draggable='true' onDragStart={event => event.dataTransfer.setData('text/plain',null)} alt=''/>
+               <Tile src={require('./tiles/Tile_1.png')}/><Tile src={require('./tiles/Tile_2.png')}/>
             </div>
         )
     }
