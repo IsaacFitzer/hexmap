@@ -23,7 +23,7 @@ class App extends React.Component {
 
   onTagClick(tag) {
     console.log(tag)
-    if (this.state.selected == tag)
+    if (this.state.selected === tag)
       this.setState({selected: ''})
     else
       this.setState({selected: tag})
