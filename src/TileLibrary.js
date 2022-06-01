@@ -127,7 +127,7 @@ class TileLibrary extends React.Component {
 
     render() {
         return (
-            <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
+            <div className='dropzone library hidden-print' style={{border: '2px solid black', height: "600px", width: "800px"}}>
                 {/* {images code goes there  VVVV} */}
                <Tile src={require('./tiles/Tile_1.png')}/><Tile src={require('./tiles/Tile_2.png')}/>
             </div>
