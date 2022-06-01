@@ -129,7 +129,7 @@ class TileLibrary extends React.Component {
         return (
             <div className='dropzone library hidden-print' style={{float: "right", border: '2px solid black', height: "600px", width: "400px"}}>
                 {/* {images code goes there  VVVV} */}
-               <Tile src={require('./tiles/Tile_1.png')}/><Tile src={require('./tiles/Tile_2.png')}/>
+               <Tile src={require('./tiles/Tile_1.png')}/><Tile src={require('./tiles/Tile_10.png')}/><Tile src={require('./tiles/Tile_11.png')}/><Tile src={require('./tiles/Tile_12.png')}/><Tile src={require('./tiles/Tile_13.png')}/><Tile src={require('./tiles/Tile_14.png')}/><Tile src={require('./tiles/Tile_2.png')}/><Tile src={require('./tiles/Tile_3.png')}/><Tile src={require('./tiles/Tile_4.png')}/><Tile src={require('./tiles/Tile_5.png')}/><Tile src={require('./tiles/Tile_6.png')}/><Tile src={require('./tiles/Tile_7.png')}/><Tile src={require('./tiles/Tile_8.png')}/><Tile src={require('./tiles/Tile_9.png')}/>
             </div>
         )
     }
