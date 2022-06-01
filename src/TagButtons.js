@@ -11,11 +11,11 @@ class TagButtons extends React.Component {
         this.props.onTagClick(e.target.id)
     }
 
-    
+
 
     render() {
         return (
-            <div id='tagBtnsContainer'>
+            <div id='tagBtnsContainer' className='hidden-print'>
                 {window.tagPool.map(tagGroup =>
                     <div className='btn-group' style={{marginTop: '4px', marginRight: '10px'}}>
                         {tagGroup.map(tag => {
