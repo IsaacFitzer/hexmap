@@ -7,7 +7,7 @@ import TagButtons from './TagButtons'
 window.tagPool = [
   ['Forest', 'Desert', 'Mountains', 'City', 'Road'],
   ['Land', 'Sea', 'Coast'],
-  ['Tile'],
+  ['Basic Tile'],
 ]
 
 window.tileTags = {
