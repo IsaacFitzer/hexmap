@@ -64,14 +64,14 @@ window.tileTags = {
   'Mountains_9': 'Coast',
   'Mountains_10': 'Land',
   
-  'SmallCity_1': 'Land Road',
-  'SmallCity_2': 'Coast Road',
-  'SmallCity_3': 'Land Road',
-  'SmallCity_4': 'Ocean Road',
-  'SmallCity_5': 'Land Road',
-  'SmallCity_6': 'Land Road',
-  'SmallCity_7': 'Coast Road',
-  'SmallCity_8': 'Coast Road',
+  'SmallCity_1': 'Land Road City',
+  'SmallCity_2': 'Coast Road City',
+  'SmallCity_3': 'Land Road City',
+  'SmallCity_4': 'Ocean Road City',
+  'SmallCity_5': 'Land Road City',
+  'SmallCity_6': 'Land Road City',
+  'SmallCity_7': 'Coast Road City',
+  'SmallCity_8': 'Coast Road City',
 
 }
 
