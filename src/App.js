@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   onTagClick = tag => {
-    let sTags = this.state.selectedTagsdd
+    let sTags = this.state.selectedTags
     if (sTags.includes(tag))
       this.setState({selectedTags: sTags.filter((t) => t !== tag)})
     else {
