@@ -22,7 +22,7 @@ class TagButtons extends React.Component {
                 {window.tagPool.map(tagGroup =>
                     <div className='btn-group' style={{marginTop: '4px', marginRight: '10px'}}>
                         {tagGroup.map(tag => {
-                            return <button id={tag} className={this.props.tags} onClick={this.onTagClick} style={this.props.selectedTags.includes(tag) ? {backgroundColor: 'purple'} : {}}>{tag === 'SmallCity' ? 'City' : tag === 'Tile' ? 'Basic Tile' : tag}</button>
+                            return <button id={tag} className={this.props.tags} onClick={this.onTagClick} style={this.props.selectedTags.includes(tag) ? {backgroundColor: 'purple'} : {}}>{tag === 'Tile' ? 'Basic Tile' : tag}</button>
                         })}
                     </div>
                 )}

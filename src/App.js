@@ -5,7 +5,7 @@ import TileLibrary from './TileLibrary'
 import TagButtons from './TagButtons'
 
 window.tagPool = [
-  ['Forest', 'Desert', 'Mountains', 'SmallCity', 'Road', 'Tile'],
+  ['Forest', 'Desert', 'Mountains', 'City', 'Road', 'Tile'],
   ['Land', 'Sea', 'Coast'],
 ]
 
