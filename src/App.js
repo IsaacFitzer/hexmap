@@ -13,16 +13,16 @@ window.tagPool = [
 window.tileTags = {
   'Tile_1': 'Forest Coast',
   'Tile_2': 'Coast',
-  'Mountains_1': '',
-  'Mountains_2': '',
-  'Mountains_3': '',
-  'Mountains_4': '',
-  'Mountains_5': '',
-  'Mountains_6': '',
-  'Mountains_7': '',
-  'Mountains_8': '',
-  'Mountains_9': '',
-  'Mountains_10': '',
+  'Mountains_1': 'Land',
+  'Mountains_2': 'Coast',
+  'Mountains_3': 'Coast',
+  'Mountains_4': 'Coast',
+  'Mountains_5': 'Coast',
+  'Mountains_6': 'Coast',
+  'Mountains_7': 'Coast',
+  'Mountains_8': 'Coast',
+  'Mountains_9': 'Coast',
+  'Mountains_10': 'Land',
 }
 
 class App extends React.Component {
