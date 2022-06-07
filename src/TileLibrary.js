@@ -87,6 +87,7 @@ class TileLibrary extends React.Component {
                     case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(-180deg)'})
                         break;
+                    case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
                     case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(-240deg)'})
                         break;
@@ -110,6 +111,7 @@ class TileLibrary extends React.Component {
                     case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(180deg)'})
                         break;
+                    case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
                     case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(240deg)'})
                         break;
