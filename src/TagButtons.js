@@ -11,19 +11,21 @@ class TagButtons extends React.Component {
         this.props.onTagClick(e.target.id)
     }
 
-    componentDidUpdate(prevProps) {
-        //this.setState({selected: this.props.selected})
-        console.log(this.props.selectedTag)
-    }
+    // componentDidUpdate(prevProps) {
+    //     this.setState({selected: this.props.selected})
+    //     console.log(this.props.selectedTag)
+    // }
 
     render() {
         return (
             <div id='tagBtnsContainer' className='hidden-print'>
-                <div className='btn-group' style={{marginTop: '4px', marginRight: '10px'}}>
-                    {window.tagPool.map(tag => {
-                        return <button id={tag} onClick={this.onTagClick} style={this.props.selected === tag ? {backgroundColor: 'purple'} : {}}>{tag}</button>
-                    })}
-                </div>
+                {window.tagPool.map(tagGroup =>
+                    <div className='btn-group' style={{marginTop: '4px', marginRight: '10px'}}>
+                        {tagGroup.map(tag => {
+                            return <button id={tag} className={this.props.tags} onClick={this.onTagClick} style={this.props.selectedTags.includes(tag) ? {backgroundColor: 'purple'} : {}}>{tag}</button>
+                        })}
+                    </div>
+                )}
             </div>
         )
     }

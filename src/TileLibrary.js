@@ -125,6 +125,11 @@ class TileLibrary extends React.Component {
         }, false)
     }
 
+    componentDidUpdate(prevProps) {
+        $('.library *').show()
+        this.props.selectedTags.forEach(tag => $('.library *').not('.' + tag).hide())
+    }
+
     render() {
         return (
             <div className='dropzone library hidden-print' style={{border: '2px solid black', height: "600px", width: "800px", overflow: 'auto'}}>

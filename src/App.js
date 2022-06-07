@@ -1,30 +1,36 @@
-import './App.css';
-import React from 'react';
-import Hexmap from './Hexmap';
-import TileLibrary from './TileLibrary';
+import './App.css'
+import React from 'react'
+import Hexmap from './Hexmap'
+import TileLibrary from './TileLibrary'
 import TagButtons from './TagButtons'
 
-window.tagPool = ['Forest', 'Desert', 'Mountains', 'City', 'Road']
+window.tagPool = [
+  ['Forest', 'Desert', 'Mountains', 'City', 'Road'],
+  ['Land', 'Sea', 'Coast'],
+  ['Tile'],
+]
 
 window.tileTags = {
-  'Tile_1': 'forest coast',
-  'Tile_2': 'coast',
+  'Tile_1': 'Forest Coast',
+  'Tile_2': 'Coast',
 }
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {selectedTag: ''}
+    this.state = {selectedTags: []}
   }
 
   onTagClick = tag => {
-    console.log(tag)
-    if (this.state.selectedTag === tag)
-      this.setState({selectedTag: ''})
-    else
-      this.setState({selectedTag: tag})
-    //window.tagPool.includes()
+    let sTags = this.state.selectedTags
+    if (sTags.includes(tag))
+      this.setState({selectedTags: sTags.filter((t) => t !== tag)})
+    else {
+      let tagGroup = window.tagPool.find(g => g.includes(tag))
+      sTags = sTags.filter(sTag => !tagGroup.includes(sTag))
+      this.setState({selectedTags: sTags.concat([tag])})
+    }
   }
 
   render() {
@@ -32,8 +38,8 @@ class App extends React.Component {
       <div className="App">
         <Hexmap width={875} height={1150} radius={60}/>
         <div style={{float: "right"}}>
-          <TileLibrary/>
-          <TagButtons onTagClick={this.onTagClick} selectedTag={this.state.selectedTag} />
+          <TileLibrary selectedTags={this.state.selectedTags}/>
+          <TagButtons onTagClick={this.onTagClick} selectedTags={this.state.selectedTags} />
         </div>
       </div>
     );
