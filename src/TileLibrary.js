@@ -105,7 +105,7 @@ class TileLibrary extends React.Component {
                     default:
                 }
             }
-            if ((event.key === 'd' || event.key === 'ArrowRight') && window.hoveredTile != null) {
+            else if ((event.key === 'd' || event.key === 'ArrowRight') && window.hoveredTile != null) {
                 switch($('#' + window.hoveredTile).css('transform')) {
                     case 'none':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(60deg)'})
@@ -128,6 +128,9 @@ class TileLibrary extends React.Component {
                         break;
                     default:
                 }
+            }
+            else if ((event.key === 'Backspace' || event.key === 'Delete') && window.hoveredTile != null) {
+                $('#' + window.hoveredTile).remove()
             }
         }, false)
     }
