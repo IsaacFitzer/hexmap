@@ -66,7 +66,7 @@ class TileLibrary extends React.Component {
                     clone.id = Math.random().toString().substring(2)
                     clone.onmouseover = () => {if (!$('#' + clone.id).parent().hasClass('library')) window.hoveredTile = clone.id}
                     clone.onmouseout = () => window.hoveredTile = null
-                    start.appendChild(item)
+                    //start.appendChild(item)
                     end.appendChild(clone);
                     window.hoveredTile = clone.id
                 }
@@ -83,7 +83,6 @@ class TileLibrary extends React.Component {
         document.addEventListener("keydown", function(event) {
             if ((event.key === 'a' || event.key === 'ArrowLeft') && window.hoveredTile != null) {
                 switch($('#' + window.hoveredTile).css('transform')) {
-                    case 'undefined':
                     case 'none':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
                         break;
