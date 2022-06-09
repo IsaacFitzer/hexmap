@@ -54,30 +54,36 @@ class TileLibrary extends React.Component {
                 let item = window.dragged
                 let start = item.parentNode,
                     end = event.target
-                // let startedLibrary = start.classList.contains("library"),
-                //     endedLibrary = end.classList.contains("library")
+                let startedLibrary = start.classList.contains("library"),
+                    endedLibrary = end.classList.contains("library")
 
                 start.style.background = "";
                 end.style.background = "";
                 
-                // if (startedLibrary && !endedLibrary) {
-                //     item.style.opacity = "";
-                //     start.appendChild(item.cloneNode())
-                //     end.appendChild(item);
-                // }
-                // else if (!startedLibrary && endedLibrary) {
-                //     start.removeChild( item );
-                // }
-                // else if (!startedLibrary && !endedLibrary) {
+                if (startedLibrary && !endedLibrary) {
+                    item.style.opacity = "";
+                    let clone = item.cloneNode()
+                    clone.id = Math.random().toString().substring(2)
+                    clone.onmouseover = () => {if (!$('#' + clone.id).parent().hasClass('library')) window.hoveredTile = clone.id}
+                    clone.onmouseout = () => window.hoveredTile = null
+                    start.appendChild(item)
+                    end.appendChild(clone);
+                    window.hoveredTile = clone.id
+                }
+                else if (!startedLibrary && endedLibrary) {
+                    start.removeChild( item );
+                }
+                else if (!startedLibrary && !endedLibrary) {
                     start.removeChild( item );
                     end.appendChild( item );
-                //}
+                }
             }
         }, false);
 
         document.addEventListener("keydown", function(event) {
             if ((event.key === 'a' || event.key === 'ArrowLeft') && window.hoveredTile != null) {
                 switch($('#' + window.hoveredTile).css('transform')) {
+                    case 'undefined':
                     case 'none':
                         $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
                         break;
