@@ -80,59 +80,113 @@ class TileLibrary extends React.Component {
             }
         }, false);
 
+        document.addEventListener("wheel", function(event) {
+            if (window.hoveredTile != null) {
+                if (event.deltaY < 0) {
+                    switch($('#' + window.hoveredTile).css('transform')) {
+                        case 'none':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
+                            break;
+                        case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-120deg)'})
+                            break;
+                        case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-180deg)'})
+                            break;
+                        case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
+                        case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-240deg)'})
+                            break;
+                        case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-300deg)'})
+                            break;
+                        case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': ''})
+                            break;
+                        default:
+                    }
+                } else if (event.deltaY > 0) {
+                    switch($('#' + window.hoveredTile).css('transform')) {
+                        case 'none':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(60deg)'})
+                            break;
+                        case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(120deg)'})
+                            break;
+                        case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(180deg)'})
+                            break;
+                        case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
+                        case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(240deg)'})
+                            break;
+                        case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(300deg)'})
+                            break;
+                        case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': ''})
+                            break;
+                        default:
+                    }
+                }
+            }
+        })
+
         document.addEventListener("keydown", function(event) {
-            if ((event.key === 'a' || event.key === 'ArrowLeft') && window.hoveredTile != null) {
-                switch($('#' + window.hoveredTile).css('transform')) {
-                    case 'none':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
-                        break;
-                    case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(-120deg)'})
-                        break;
-                    case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(-180deg)'})
-                        break;
-                    case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
-                    case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(-240deg)'})
-                        break;
-                    case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(-300deg)'})
-                        break;
-                    case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': ''})
-                        break;
-                    default:
+            if (window.hoveredTile != null) {
+                if (event.key === 'a' || event.key === 'ArrowLeft') {
+                    switch($('#' + window.hoveredTile).css('transform')) {
+                        case 'none':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-60deg)'})
+                            break;
+                        case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-120deg)'})
+                            break;
+                        case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-180deg)'})
+                            break;
+                        case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
+                        case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-240deg)'})
+                            break;
+                        case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(-300deg)'})
+                            break;
+                        case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': ''})
+                            break;
+                        default:
+                    }
+                }
+                else if (event.key === 'd' || event.key === 'ArrowRight') {
+                    switch($('#' + window.hoveredTile).css('transform')) {
+                        case 'none':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(60deg)'})
+                            break;
+                        case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(120deg)'})
+                            break;
+                        case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(180deg)'})
+                            break;
+                        case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
+                        case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(240deg)'})
+                            break;
+                        case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': 'rotate(300deg)'})
+                            break;
+                        case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
+                            $('#' + window.hoveredTile).css({'transform': ''})
+                            break;
+                        default:
+                    }
+                }
+                else if (event.key === 'Backspace' || event.key === 'Delete') {
+                    $('#' + window.hoveredTile).remove()
                 }
             }
-            else if ((event.key === 'd' || event.key === 'ArrowRight') && window.hoveredTile != null) {
-                switch($('#' + window.hoveredTile).css('transform')) {
-                    case 'none':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(60deg)'})
-                        break;
-                    case 'matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(120deg)'})
-                        break;
-                    case 'matrix(-0.5, 0.866025, -0.866025, -0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(180deg)'})
-                        break;
-                    case 'matrix(-1, -1.22465e-16, 1.22465e-16, -1, 0, 0)':
-                    case 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(240deg)'})
-                        break;
-                    case 'matrix(-0.5, -0.866025, 0.866025, -0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': 'rotate(300deg)'})
-                        break;
-                    case 'matrix(0.5, -0.866025, 0.866025, 0.5, 0, 0)':
-                        $('#' + window.hoveredTile).css({'transform': ''})
-                        break;
-                    default:
-                }
-            }
-            else if ((event.key === 'Backspace' || event.key === 'Delete') && window.hoveredTile != null) {
-                $('#' + window.hoveredTile).remove()
-            }
-        }, false)
+        })
     }
 
     componentDidUpdate(prevProps) {
