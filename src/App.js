@@ -84,15 +84,15 @@ window.tileTags = {
   'Forest_10': 'Land'
    
   'Road_1': 'Land'
-  'Road_2': 'Land'
+  'Road_2': 'Coast'
   'Road_3': 'Land'
   'Road_4': 'Land'
   'Road_5': 'Land'
   'Road_6': 'Land'
-  'Road_7': 'Land'
+  'Road_7': 'Coast'
   'Road_8': 'Land'
   'Road_9': 'Land'
-  'Road_10': 'Land'
+  'Road_10': 'Coast'
   
 }
 
