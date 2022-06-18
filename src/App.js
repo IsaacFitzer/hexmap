@@ -72,27 +72,27 @@ window.tileTags = {
   'SmallCity_7': 'Coast Road City',
   'SmallCity_8': 'Coast Road City',
   
-  'Forest_1': 'Land'
-  'Forest_2': 'Land'
-  'Forest_3': 'Land'
-  'Forest_4': 'Land'
-  'Forest_5': 'Land'
-  'Forest_6': 'Land'
-  'Forest_7': 'Land'
-  'Forest_8': 'Land'
-  'Forest_9': 'Land'
-  'Forest_10': 'Land'
+  'Forest_1': 'Land',
+  'Forest_2': 'Land',
+  'Forest_3': 'Land',
+  'Forest_4': 'Land',
+  'Forest_5': 'Land',
+  'Forest_6': 'Land',
+  'Forest_7': 'Land',
+  'Forest_8': 'Land',
+  'Forest_9': 'Land',
+  'Forest_10': 'Land',
    
-  'Road_1': 'Land'
-  'Road_2': 'Coast'
-  'Road_3': 'Land'
-  'Road_4': 'Land'
-  'Road_5': 'Land'
-  'Road_6': 'Land'
-  'Road_7': 'Coast'
-  'Road_8': 'Land'
-  'Road_9': 'Land'
-  'Road_10': 'Coast'
+  'Road_1': 'Land',
+  'Road_2': 'Coast',
+  'Road_3': 'Land',
+  'Road_4': 'Land',
+  'Road_5': 'Land',
+  'Road_6': 'Land',
+  'Road_7': 'Coast',
+  'Road_8': 'Land',
+  'Road_9': 'Land',
+  'Road_10': 'Coast',
   
 }
 
